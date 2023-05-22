@@ -9,7 +9,8 @@ title: Lab 01 - Your first ever Terraform project
 ## Hand-on Lab : 
 
 
-![[lab1-files-hierachy.png]]
+![lab1-files-hierachy](../artifacts/lab01/lab1-files-hierachy.png)
+
 
 ```hcl
 #provider.hcl 
@@ -65,15 +66,14 @@ What is resource ?
 terraform init
 ```
 
-![[lab1-tf-init.png]]
-
+![lab1-tf-init](../artifacts/lab01/lab1-tf-init.png)
 #### Terraform plan
 
 ```shell
 terraform plan 
 ```
 
-![[lab01_tf_plan.png]]
+![lab01_tf_plan](../artifacts/lab01/lab01_tf_plan.png)
 
 
 #### Terraform apply
@@ -82,11 +82,10 @@ terraform plan
 terraform apply
 ```
 
-![[lab01-tf-apply.png]]
-
+![lab01-tf-apply](../artifacts/lab01/lab01-tf-apply.png)
 - Check output resource is created by terraform 
 
-![[lab01-resource-after-deploy.png]]
+![lab01-resource-after-deploy](../artifacts/lab01/lab01-resource-after-deploy.png)
 
 ### Terraform destroy 
 
@@ -94,7 +93,7 @@ terraform apply
 terraform destroy
 ```
 
-![[lab01-tf-destroy.png]]
+![lab01-tf-destroy](../artifacts/lab01/lab01-tf-destroy.png)
 
 
 
