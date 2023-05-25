@@ -1,6 +1,6 @@
 ---
 dg-publish: true
-title: Terraform 101 practice Lab
+title: Terraform 101: Practice labs
 ---
 
 # PREREQUISITES
@@ -26,10 +26,10 @@ Install bellow :
 
 ## LABS 
 
-[[lab-01-your-first-ever-terraform-project| Lab 1: Your first ever Terraform Project]]
+[[level_1/README| Lab 1: Your first ever Terraform Project]]
 - Initial your first Terraform 
 - Learn about basic concept using in Terraform likes: 
 	- Provider
 	- Resource 
-[[lab-02-learn-about-terraform-variable| Terraform Variables]]
+[[level_2/README| Terraform Variables]]
 - Learn about Terraform variable
