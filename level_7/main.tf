@@ -1,5 +1,5 @@
 module "s3" {
-  source                  = "modules/s3"
+  source                  = "./modules/s3"
   bucket_name             = var.s3_bucket_name
   block_public_acls       = var.s3_block_public_acls
   block_public_policy     = var.s3_block_public_policy
@@ -8,7 +8,7 @@ module "s3" {
 }
 
 module "ec2" {
-  source        = "modules/ec2"
+  source        = "./modules/ec2"
   instance_type = var.ec2_instance_type
   instance_name = var.ec2_instance_name
 }

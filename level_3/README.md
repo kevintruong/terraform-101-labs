@@ -26,7 +26,6 @@ restrict_public_buckets = true
 ```
 
 Step by step:
-
 - Run command `terraform init`
 - Run command `terraform plan -var-file=s3.tfvars`
 - Run command `terraform apply -var-file=s3.tfvars`
