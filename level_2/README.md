@@ -2,15 +2,12 @@
 creation date: 2023-05-21 09:36
 modification date: Sunday 21st May 2023 09:36:25
 dg-publish: true
-title: Lab 02: Learn About Terraform Variable
+title: "Lab 02: Terraform Variable"
 ---
-
-# LAB 02 : Terraform variables
 
 Introduce concept of variable 
 
-Based on Lab1, customized the lab following guide line:
-
+Based on Lab1, customized the lab following guideline:
 
 ```hcl
 # main.hcl 
