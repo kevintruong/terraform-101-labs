@@ -30,7 +30,7 @@ Step by step:
 - Run command `terraform plan -var-file=s3.tfvars`
 - Run command `terraform apply -var-file=s3.tfvars`
 - Observe the expected result 
-![[../artifacts/lab03-tf-apply-result.png]]
+![lab03-tf-apply-result](../artifacts/lab03-tf-apply-result.png)
 
 > Let none find fault with others; let none see the omissions and commissions of others. But let one see one's own acts,
 > done and undone.

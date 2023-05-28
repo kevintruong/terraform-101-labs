@@ -26,12 +26,12 @@ Install bellow :
 
 ## LABS 
 
-- [[level_1/README|Lab 01: Your first ever Terraform project]]
+- [Lab 01: Your first ever Terraform project](level_1/README.md)
 	- Initial your first Terraform 
 	- Learn about basic concept using in Terraform likes: 
 		- Provider
 		- Resource 
-- [[level_2/README|Lab 02: Terraform Variable]]
-- [[level_3/README|Lab 03: tfvars file, variable management]]
+- [Lab 02: Terraform Variable](level_2/README.md)
+- [Lab 03: tfvars file, variable management](level_3/README.md)
 	- Learn about Terraform variable
-- [[level_4/README|Lab 04: Terraform Output]]
+- [Lab 04: Terraform Output](level_4/README.md)

@@ -30,6 +30,6 @@ output "bucket_arn" {
 - Run plan command: `terraform plan`
 - run apply command : `terraform apply -auto-approve -var-fille=s3.tfvars`
 - Observe expected result
-![[../artifacts/lab04-tf-apply-result.png]]
+![lab04-tf-apply-result](../artifacts/lab04-tf-apply-result.png)
 > We are what we repeatedly do. Excellence, then, is not an act, but a habit.
 > — <cite>Aristotle</cite>

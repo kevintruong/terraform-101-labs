@@ -30,13 +30,13 @@ output "s3_bucket_arn" {
 terraform plan -var-file=multiple_modules.tfvars
 ```
 
-![[../artifacts/lab07-tf-plan-result.png]]
+![lab07-tf-plan-result](../artifacts/lab07-tf-plan-result.png)
 
 ```shell
 terraform apply -var-file=multiple_modules.tfvars -auto-approve
 ```
 
-![[../artifacts/lab07-tf-apply-result.png]]
+![lab07-tf-apply-result](../artifacts/lab07-tf-apply-result.png)
 
 
 > To fly as fast as thought, you must begin by knowing that you have already arrived.

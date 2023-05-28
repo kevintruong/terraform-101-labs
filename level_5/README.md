@@ -19,13 +19,13 @@ terraform init
 terraform plan -var-file=s3_module.tfvars
 ```
 
-![[../artifacts/lab05-tf-plan-result.png]]
+![lab05-tf-plan-result](../artifacts/lab05-tf-plan-result.png)
 
 ```shell
 terraform apply -var-file=s3_module.tfvars -auto-approve
 ```
 
-![[../../../../artifacts/lab05-tf-apply-result.png]]
+![lab05-tf-apply-result](../../../../artifacts/lab05-tf-apply-result.png)
 
 > The most formidable weapon against errors of every kind is reason.
 > — <cite>Thomas Paine</cite>
