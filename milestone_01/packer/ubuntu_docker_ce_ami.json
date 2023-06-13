@@ -1,0 +1,59 @@
+{
+  "builders": [
+    {
+      "access_key": "{{user `aws_access_key`}}",
+      "ami_description": "{{user `ap_southeast_1_name`}} AMI",
+      "ami_name": "{{user `ap_southeast_1_name`}} {{timestamp}}",
+      "associate_public_ip_address": true,
+      "instance_type": "t2.xlarge",
+      "name": "{{user `ap_southeast_1_name`}}",
+      "region": "ap-southeast-1",
+      "run_tags": {
+        "ami-create": "{{user `ap_southeast_1_name`}}"
+      },
+      "secret_key": "{{user `aws_secret_key`}}",
+      "source_ami": "{{user `ap_southeast_1_ami`}}",
+      "ssh_interface": "public_ip",
+      "ssh_timeout": "5m",
+      "ssh_username": "{{user `ssh_username`}}",
+      "subnet_id": "",
+      "tags": {
+        "ami": "{{user `ap_southeast_1_name`}}"
+      },
+      "type": "amazon-ebs",
+      "vpc_id": ""
+    }
+  ],
+  "provisioners": [
+    {
+      "destination": "/tmp/bootstrap_docker_ce.sh",
+      "source": "bootstrap_docker_ce.sh",
+      "type": "file"
+    },
+    {
+      "destination": "/tmp/cleanup.sh",
+      "source": "cleanup.sh",
+      "type": "file"
+    },
+    {
+      "execute_command": "echo 'packer' | sudo -S sh -c '{{ .Vars }} {{ .Path }}'",
+      "inline": [
+        "whoami",
+        "cd /tmp",
+        "chmod +x bootstrap_docker_ce.sh",
+        "chmod +x cleanup.sh",
+        "ls -alh /tmp",
+        "./bootstrap_docker_ce.sh",
+        "sleep 10",
+        "./cleanup.sh"
+      ],
+      "type": "shell"
+    }
+  ],
+  "variables": {
+    "ap_southeast_1_ami": "ami-0efcfaf48fcb35dd9",
+    "ap_southeast_1_name": "ubuntu-xenial-docker-ce-base",
+    "name": "test-docker-ce-base",
+    "ssh_username": "ubuntu"
+  }
+}

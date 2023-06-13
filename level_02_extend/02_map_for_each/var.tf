@@ -5,6 +5,13 @@ variable "user_names" {
     tags = map(string)
   }))
   default = {
+    "Vu" = {
+      path = "/sales/"
+      tags = {
+        "email"  = "vu@acme.com"
+        "mobile" = "0902209011"
+      }
+    }
     "John" = {
       path = "/marketing/"
       tags = {

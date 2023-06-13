@@ -1,0 +1,154 @@
+name: terraform-aws-ec2-instance
+tags:
+- aws
+- terraform
+- terraform-modules
+- platform
+- ec2
+- instance
+- security
+- ansible
+categories:
+- terraform-modules/platform
+license: APACHE2
+github_repo: cloudposse/terraform-aws-ec2-instance
+badges:
+- name: Latest Release
+  image: https://img.shields.io/github/release/cloudposse/terraform-aws-ec2-instance.svg
+  url: https://github.com/cloudposse/terraform-aws-ec2-instance/releases/latest
+- name: Slack Community
+  image: https://slack.cloudposse.com/badge.svg
+  url: https://slack.cloudposse.com
+related:
+- name: terraform-aws-ec2-ami-backup
+  description: Terraform module for automatic & scheduled AMI creation
+  url: https://github.com/cloudposse/terraform-aws-ec2-ami-backup
+- name: terraform-aws-ec2-ami-snapshot
+  description: Terraform module to easily generate AMI snapshots to create replica
+    instances
+  url: https://github.com/cloudposse/terraform-aws-ec2-ami-snapshot
+- name: terraform-aws-ec2-cloudwatch-sns-alarms
+  description: Terraform module that configures CloudWatch SNS alerts for EC2 instances
+  url: https://github.com/cloudposse/terraform-aws-ec2-cloudwatch-sns-alarms
+- name: terraform-null-label
+  description: Terraform Module to define a consistent naming convention by (namespace,
+    stage, name, [attributes])
+  url: https://github.com/cloudposse/terraform-null-label
+description: |-
+  Terraform Module for provisioning a general purpose EC2 host.
+
+  Included features:
+  * Automatically create a Security Group
+  * Option to switch EIP attachment
+  * CloudWatch monitoring and automatic reboot if instance hangs
+  * Assume Role capability
+usage: |-
+  Note: add `${var.ssh_key_pair}` private key to the `ssh agent`.
+
+  Include this repository as a module in your existing terraform code.
+
+  ### Simple example:
+
+  ```hcl
+  module "instance" {
+    source = "cloudposse/ec2-instance/aws"
+    # Cloud Posse recommends pinning every module to a specific version
+    # version     = "x.x.x"
+    ssh_key_pair                = var.ssh_key_pair
+    instance_type               = var.instance_type
+    vpc_id                      = var.vpc_id
+    security_groups             = var.security_groups
+    subnet                      = var.subnet
+    name                        = "ec2"
+    namespace                   = "eg"
+    stage                       = "dev"
+  }
+  ```
+
+  ### Example with additional volumes and EIP
+
+  ```hcl
+  module "kafka_instance" {
+    source = "cloudposse/ec2-instance/aws"
+    # Cloud Posse recommends pinning every module to a specific version
+    # version     = "x.x.x"
+    ssh_key_pair                = var.ssh_key_pair
+    vpc_id                      = var.vpc_id
+    security_groups             = var.security_groups
+    subnet                      = var.subnet
+    associate_public_ip_address = true
+    name                        = "kafka"
+    namespace                   = "eg"
+    stage                       = "dev"
+    additional_ips_count        = 1
+    ebs_volume_count            = 2
+    security_group_rules = [
+      {
+        type        = "egress"
+        from_port   = 0
+        to_port     = 65535
+        protocol    = "-1"
+        cidr_blocks = ["0.0.0.0/0"]
+      },
+      {
+        type        = "ingress"
+        from_port   = 22
+        to_port     = 22
+        protocol    = "tcp"
+        cidr_blocks = ["0.0.0.0/0"]
+      },
+      {
+        type        = "ingress"
+        from_port   = 80
+        to_port     = 80
+        protocol    = "tcp"
+        cidr_blocks = ["0.0.0.0/0"]
+      },
+      {
+        type        = "ingress"
+        from_port   = 443
+        to_port     = 443
+        protocol    = "tcp"
+        cidr_blocks = ["0.0.0.0/0"]
+      },
+      {
+        type        = "ingress"
+        from_port   = 53
+        to_port     = 53
+        protocol    = "udp"
+        cidr_blocks = ["0.0.0.0/0"]
+      },
+    ]
+  }
+  ```
+references:
+- name: terraform-aws-ec2-bastion-server
+  description: Terraform Module to define a generic Bastion host with parameterized
+    user_data
+  url: https://github.com/cloudposse/terraform-aws-ec2-bastion-server
+include:
+- docs/targets.md
+- docs/terraform.md
+contributors:
+- name: Erik Osterman
+  github: osterman
+- name: Igor Rodionov
+  github: goruha
+- name: Andriy Knysh
+  github: aknysh
+- name: Sergey Vasilyev
+  github: s2504s
+- name: Valeriy
+  github: drama17
+- name: Ivan Pinatti
+  github: ivan-pinatti
+- name: Vladimir Syromyatnikov
+  github: SweetOps
+- name: Konstantin B
+  github: comeanother
+- name: Maarten van der Hoef
+  github: maartenvanderhoef
+- name: Chris Weyl
+  github: rsrchboy
+- name: Yonatan Koren
+  github: korenyoni

@@ -1,5 +1,6 @@
 resource "aws_s3_bucket" "level_1" {
-  bucket = "my-level-1-bucket"
+  bucket = "vutch-my-level-1-bucket"
+
 }
 
 resource "aws_s3_bucket_public_access_block" "level_1" {
